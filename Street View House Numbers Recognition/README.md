@@ -18,3 +18,27 @@ label	字符编码
 ### 评价标准
 评价标准为准确率，选手提交结果与实际图片的编码进行对比，以编码整体识别准确率为评价指标，结果越大越好，具体计算公式如下：
 score = 编码识别正确的数量/测试集图片数量
+
+## 2.数据扩增
+### 图像读取
+图像读取现在比较主流的库主要有Pillow和OpenCV。Pillow是图像处理函式库（PIL)的一个分支。OpenCV在功能上比Pillow更加强大很多，学习成本也高很多。
+### 数据扩增
+在数据集不够的情况下，数据扩增可以增加训练样本，同时也可以有效缓解模型过拟合现象。使得模型具有更好的泛化能力。
+数据扩增的方法有很多，从颜色空间、尺度空间到样本空间，同时根据不同任务数据扩增都有相应的区别。对于图像分类，数据扩增一般不会改变标签。
+### 常用数据扩增库
+#### torchvision
+以torchvison为例，常见的数据扩增方法包括：
+transforms.CenterCrop 对图片中心进行剪裁
+transforms.ColorJitter 对颜色的对比度、饱和度和零度进行变换
+transforms.FiveCrop 对图像四个角和中心进行剪裁得到五分图像
+transforms.Grayscale 对图像进行灰度变换
+transforms.Pad 使用固定值进行像素填充
+transforms.RandomAffine 随机放射变换
+transforms.RandomHorizontalFlip 随机水平翻转
+transforms.RandomRotation 随机旋转
+transforms.RandomVerticalFlip 随机垂直翻转
+
+
+
+
+
