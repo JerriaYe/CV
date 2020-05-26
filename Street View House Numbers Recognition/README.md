@@ -38,6 +38,14 @@ transforms.RandomHorizontalFlip 随机水平翻转
 transforms.RandomRotation 随机旋转
 transforms.RandomVerticalFlip 随机垂直翻转
 
+## 3.构建模型
+在Pytorch中构建CNN模型非常简单，只需要定义好模型的参数和正向传播即可，Pytorch会根据正向传播自动计算反向传播。
+### baseline模型
+baseline的模型是利用ResNet18作为特征提取模块，然后再连接了五个全连接层的神经网络结构。SVHN_Model1类中定义了cnn模型的各个层（包括层的定义和参数等等），然后定义了正向传播的连接情况。再通过利用刚刚定义的SVHN_Model1作为模型，定义分类模型的训练和验证过程。
+分别需要传入的参数有train_loader, model, criterion, optimizer, epoch：数据集，模型，模型效果计算策略，优化器等等东西。
+也可以自己利用pytorch框架定义模型（卷积层，池化层和全连接层）进行训练验证，查看结果。
+
+
 
 
 
