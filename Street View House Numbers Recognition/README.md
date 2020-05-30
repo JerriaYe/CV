@@ -45,6 +45,16 @@ baseline的模型是利用ResNet18作为特征提取模块，然后再连接了�
 分别需要传入的参数有train_loader, model, criterion, optimizer, epoch：数据集，模型，模型效果计算策略，优化器等等东西。
 也可以自己利用pytorch框架定义模型（卷积层，池化层和全连接层）进行训练验证，查看结果。
 
+## 4.模型训练与验证
+1.在训练集上进行训练，并在验证集上进行验证；
+
+2.模型可以保存最优的权重，并读取权重；
+torch.save(model_object.state_dict(), 'model.pt')
+
+model.load_state_dict(torch.load(' model.pt'))
+
+3.记录下训练集和验证集的精度，便于调参。
+
 
 
 
